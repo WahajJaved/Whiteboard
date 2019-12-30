@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/Whiteboard.dir/TCP_Client.c.o CMakeFiles/Whiteboard.dir/TCP_Server.c.o  -o Whiteboard 

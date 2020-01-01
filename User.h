@@ -6,10 +6,10 @@
 #define WHITEBOARD_USER_H
 
 
-struct User {
-	char * userName;
+typedef struct{
+	char * username;
 	char * password;
-};
+}User;
 
 
 #endif //WHITEBOARD_USER_H

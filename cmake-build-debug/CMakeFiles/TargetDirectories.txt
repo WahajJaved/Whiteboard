@@ -1,3 +1,0 @@
-/home/mani/Workspace/SideProject/Fiv/Whiteboard/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/mani/Workspace/SideProject/Fiv/Whiteboard/cmake-build-debug/CMakeFiles/Whiteboard.dir
-/home/mani/Workspace/SideProject/Fiv/Whiteboard/cmake-build-debug/CMakeFiles/edit_cache.dir

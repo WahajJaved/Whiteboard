@@ -6,9 +6,9 @@
 #define WHITEBOARD_MESSAGE_H
 
 
-class Message {
+typedef struct{
 
-};
+}Message;
 
 
 #endif //WHITEBOARD_MESSAGE_H

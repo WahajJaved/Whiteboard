@@ -4,8 +4,3 @@
 
 #include "Message.h"
 
-
-struct Message{
-	int messageId;
-	int status;
-};

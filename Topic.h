@@ -7,11 +7,10 @@
 
 
 #include "Message.c"
-#include "User.c"
 
 typedef struct {
 	char* topicName;
-	Message * messageList;
+	Message ** messageList;
 	User * owner;
 	User ** subscriberList;
 	int currentMessages, currentSubscribers;

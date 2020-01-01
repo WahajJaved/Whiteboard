@@ -10,9 +10,9 @@
 static int currentMessage = 0;
 typedef struct{
 	int messageId;
-	char * messageText;
+	char messageText[1024];
+	char status[16];
 	User * owner;
-	char * status;
 }Message;
 
 

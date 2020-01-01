@@ -47,10 +47,14 @@ int addTopic(Whiteboard * whiteboard, char* topicName, User * owner) {
 	}
 }
 
-Message* getMessageTopic(Whiteboard* whiteboard, int messageId) {
+Message* getMessageTopic(Whiteboard* whiteboard, int messageId, User* user) {
+	Message* message = NULL;
 	for(int i=0; i<whiteboard->currentTopics; i++) {
-		if(getMessage(whiteboard->topicList[i],messageId) != NULL) {
-			return getMessage(whiteboard->topicList[i],messageId);
+		if((message = getMessage(whiteboard->topicList[i],messageId)) != NULL) {
+			if(isSubscribed(whiteboard->topicList[i],user))
+				return message;
+			else
+				return NULL;
 		}
 	}
 	return NULL;

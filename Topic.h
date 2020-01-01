@@ -9,7 +9,7 @@
 #include "Message.c"
 
 typedef struct {
-	char* topicName;
+	char topicName[64];
 	Message ** messageList;
 	User * owner;
 	User ** subscriberList;

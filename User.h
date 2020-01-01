@@ -7,8 +7,8 @@
 
 
 typedef struct{
-	char * username;
-	char * password;
+	char username[64];
+	char password[64];
 }User;
 
 

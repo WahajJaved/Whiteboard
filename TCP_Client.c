@@ -13,7 +13,7 @@ int main(void)
 {
         int socket_desc;
         struct sockaddr_in server_addr;
-        char server_message[2000], client_message[2000];
+        char server_message[2020], client_message[2020];
         
         //Cleaning the Buffers
         
@@ -35,7 +35,7 @@ int main(void)
         //Specifying the IP and Port of the server to connect
         
         server_addr.sin_family = AF_INET;
-        server_addr.sin_port = htons(2000);
+        server_addr.sin_port = htons(2020);
         server_addr.sin_addr.s_addr = inet_addr("127.0.0.1");
         
         //Now connecting to the server accept() using connect() from client side
@@ -50,7 +50,7 @@ int main(void)
         
         //Get Input from the User
         
-        printf("Enter Message: ");
+        printf("Enter UserName: ");
         gets(client_message);                                     //One is that gets() will only get character string data. 
                                                        //		will get only one variable at a time.
 																//  reads characters from stdin and loads them into str
@@ -58,10 +58,19 @@ int main(void)
         
         if(send(socket_desc, client_message, strlen(client_message),0) < 0)
         {
-                printf("Send Failed. Error!!!!\n");
+                printf("UserName not sent. Error!!!!\n");
                 return -1;
         }
-        
+
+        memset(client_message,'\0',sizeof(client_message));
+        printf("Enter Password: ");
+        gets(client_message);
+        if(send(socket_desc, client_message, strlen(client_message),0) < 0)
+        {
+            printf("Password not sent. Error!!!!\n");
+            return -1;
+        }
+
         //Receive the message back from the server
         
         if(recv(socket_desc, server_message, sizeof(server_message),0) < 0)
@@ -81,3 +90,6 @@ int main(void)
         
         return 0;
 }
+
+
+

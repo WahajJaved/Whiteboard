@@ -4,8 +4,12 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/wj/Workspace/FreelanceProjects/Whiteboard/TCP_Client.c" "/home/wj/Workspace/FreelanceProjects/Whiteboard/cmake-build-debug/CMakeFiles/Whiteboard.dir/TCP_Client.c.o"
-  "/home/wj/Workspace/FreelanceProjects/Whiteboard/TCP_Server.c" "/home/wj/Workspace/FreelanceProjects/Whiteboard/cmake-build-debug/CMakeFiles/Whiteboard.dir/TCP_Server.c.o"
+  "/home/mani/Workspace/SideProject/Fiv/Whiteboard/Message.c" "/home/mani/Workspace/SideProject/Fiv/Whiteboard/cmake-build-debug/CMakeFiles/Whiteboard.dir/Message.c.o"
+  "/home/mani/Workspace/SideProject/Fiv/Whiteboard/TCP_Client.c" "/home/mani/Workspace/SideProject/Fiv/Whiteboard/cmake-build-debug/CMakeFiles/Whiteboard.dir/TCP_Client.c.o"
+  "/home/mani/Workspace/SideProject/Fiv/Whiteboard/TCP_Server.c" "/home/mani/Workspace/SideProject/Fiv/Whiteboard/cmake-build-debug/CMakeFiles/Whiteboard.dir/TCP_Server.c.o"
+  "/home/mani/Workspace/SideProject/Fiv/Whiteboard/Topic.c" "/home/mani/Workspace/SideProject/Fiv/Whiteboard/cmake-build-debug/CMakeFiles/Whiteboard.dir/Topic.c.o"
+  "/home/mani/Workspace/SideProject/Fiv/Whiteboard/User.c" "/home/mani/Workspace/SideProject/Fiv/Whiteboard/cmake-build-debug/CMakeFiles/Whiteboard.dir/User.c.o"
+  "/home/mani/Workspace/SideProject/Fiv/Whiteboard/Whiteboard.c" "/home/mani/Workspace/SideProject/Fiv/Whiteboard/cmake-build-debug/CMakeFiles/Whiteboard.dir/Whiteboard.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

@@ -6,5 +6,5 @@ C_FLAGS = -g   -std=gnu11
 
 C_DEFINES = 
 
-C_INCLUDES = -I/home/wj/Workspace/FreelanceProjects/Whiteboard/. 
+C_INCLUDES = -I/home/mani/Workspace/SideProject/Fiv/Whiteboard/. 
 

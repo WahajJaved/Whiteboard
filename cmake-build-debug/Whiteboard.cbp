@@ -8,107 +8,109 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/wj/Workspace/FreelanceProjects/Whiteboard/cmake-build-debug"/>
+				<Option working_dir="/home/mani/Workspace/SideProject/Fiv/Whiteboard/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/wj/Workspace/FreelanceProjects/Whiteboard/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/wj/Workspace/FreelanceProjects/Whiteboard/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/wj/Workspace/FreelanceProjects/Whiteboard/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/wj/Workspace/FreelanceProjects/Whiteboard/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/mani/Workspace/SideProject/Fiv/Whiteboard/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/mani/Workspace/SideProject/Fiv/Whiteboard/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/mani/Workspace/SideProject/Fiv/Whiteboard/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/mani/Workspace/SideProject/Fiv/Whiteboard/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/wj/Workspace/FreelanceProjects/Whiteboard/cmake-build-debug"/>
+				<Option working_dir="/home/mani/Workspace/SideProject/Fiv/Whiteboard/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/wj/Workspace/FreelanceProjects/Whiteboard/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/wj/Workspace/FreelanceProjects/Whiteboard/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/wj/Workspace/FreelanceProjects/Whiteboard/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/wj/Workspace/FreelanceProjects/Whiteboard/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/mani/Workspace/SideProject/Fiv/Whiteboard/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/mani/Workspace/SideProject/Fiv/Whiteboard/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/mani/Workspace/SideProject/Fiv/Whiteboard/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/mani/Workspace/SideProject/Fiv/Whiteboard/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Whiteboard">
-				<Option output="/home/wj/Workspace/FreelanceProjects/Whiteboard/cmake-build-debug/Whiteboard" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/wj/Workspace/FreelanceProjects/Whiteboard/cmake-build-debug"/>
+				<Option output="/home/mani/Workspace/SideProject/Fiv/Whiteboard/cmake-build-debug/Whiteboard" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mani/Workspace/SideProject/Fiv/Whiteboard/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/wj/Workspace/FreelanceProjects/Whiteboard/."/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include"/>
+					<Add directory="/home/mani/Workspace/SideProject/Fiv/Whiteboard/."/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
 					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/wj/Workspace/FreelanceProjects/Whiteboard/cmake-build-debug/Makefile&quot;  VERBOSE=1 Whiteboard"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/wj/Workspace/FreelanceProjects/Whiteboard/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/wj/Workspace/FreelanceProjects/Whiteboard/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/wj/Workspace/FreelanceProjects/Whiteboard/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/mani/Workspace/SideProject/Fiv/Whiteboard/cmake-build-debug/Makefile&quot;  VERBOSE=1 Whiteboard"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/mani/Workspace/SideProject/Fiv/Whiteboard/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/mani/Workspace/SideProject/Fiv/Whiteboard/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/mani/Workspace/SideProject/Fiv/Whiteboard/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Whiteboard/fast">
-				<Option output="/home/wj/Workspace/FreelanceProjects/Whiteboard/cmake-build-debug/Whiteboard" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/wj/Workspace/FreelanceProjects/Whiteboard/cmake-build-debug"/>
+				<Option output="/home/mani/Workspace/SideProject/Fiv/Whiteboard/cmake-build-debug/Whiteboard" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mani/Workspace/SideProject/Fiv/Whiteboard/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/wj/Workspace/FreelanceProjects/Whiteboard/."/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include"/>
+					<Add directory="/home/mani/Workspace/SideProject/Fiv/Whiteboard/."/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
 					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/wj/Workspace/FreelanceProjects/Whiteboard/cmake-build-debug/Makefile&quot;  VERBOSE=1 Whiteboard/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/wj/Workspace/FreelanceProjects/Whiteboard/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/wj/Workspace/FreelanceProjects/Whiteboard/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/wj/Workspace/FreelanceProjects/Whiteboard/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/mani/Workspace/SideProject/Fiv/Whiteboard/cmake-build-debug/Makefile&quot;  VERBOSE=1 Whiteboard/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/mani/Workspace/SideProject/Fiv/Whiteboard/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/mani/Workspace/SideProject/Fiv/Whiteboard/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/mani/Workspace/SideProject/Fiv/Whiteboard/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/wj/Workspace/FreelanceProjects/Whiteboard/cmake-build-debug"/>
+				<Option working_dir="/home/mani/Workspace/SideProject/Fiv/Whiteboard/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/wj/Workspace/FreelanceProjects/Whiteboard/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/wj/Workspace/FreelanceProjects/Whiteboard/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/wj/Workspace/FreelanceProjects/Whiteboard/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/wj/Workspace/FreelanceProjects/Whiteboard/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/mani/Workspace/SideProject/Fiv/Whiteboard/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/mani/Workspace/SideProject/Fiv/Whiteboard/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/mani/Workspace/SideProject/Fiv/Whiteboard/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/mani/Workspace/SideProject/Fiv/Whiteboard/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/wj/Workspace/FreelanceProjects/Whiteboard/Message.cpp">
+		<Unit filename="/home/mani/Workspace/SideProject/Fiv/Whiteboard/Message.c">
 			<Option target="Whiteboard"/>
 		</Unit>
-		<Unit filename="/home/wj/Workspace/FreelanceProjects/Whiteboard/Message.h">
+		<Unit filename="/home/mani/Workspace/SideProject/Fiv/Whiteboard/Message.h">
 			<Option target="Whiteboard"/>
 		</Unit>
-		<Unit filename="/home/wj/Workspace/FreelanceProjects/Whiteboard/TCP_Client.c">
+		<Unit filename="/home/mani/Workspace/SideProject/Fiv/Whiteboard/TCP_Client.c">
 			<Option target="Whiteboard"/>
 		</Unit>
-		<Unit filename="/home/wj/Workspace/FreelanceProjects/Whiteboard/TCP_Server.c">
+		<Unit filename="/home/mani/Workspace/SideProject/Fiv/Whiteboard/TCP_Server.c">
 			<Option target="Whiteboard"/>
 		</Unit>
-		<Unit filename="/home/wj/Workspace/FreelanceProjects/Whiteboard/Topic.cpp">
+		<Unit filename="/home/mani/Workspace/SideProject/Fiv/Whiteboard/Topic.c">
 			<Option target="Whiteboard"/>
 		</Unit>
-		<Unit filename="/home/wj/Workspace/FreelanceProjects/Whiteboard/Topic.h">
+		<Unit filename="/home/mani/Workspace/SideProject/Fiv/Whiteboard/Topic.h">
 			<Option target="Whiteboard"/>
 		</Unit>
-		<Unit filename="/home/wj/Workspace/FreelanceProjects/Whiteboard/User.cpp">
+		<Unit filename="/home/mani/Workspace/SideProject/Fiv/Whiteboard/User.c">
 			<Option target="Whiteboard"/>
 		</Unit>
-		<Unit filename="/home/wj/Workspace/FreelanceProjects/Whiteboard/User.h">
+		<Unit filename="/home/mani/Workspace/SideProject/Fiv/Whiteboard/User.h">
 			<Option target="Whiteboard"/>
 		</Unit>
-		<Unit filename="/home/wj/Workspace/FreelanceProjects/Whiteboard/Whiteboard.cpp">
+		<Unit filename="/home/mani/Workspace/SideProject/Fiv/Whiteboard/Whiteboard.c">
 			<Option target="Whiteboard"/>
 		</Unit>
-		<Unit filename="/home/wj/Workspace/FreelanceProjects/Whiteboard/Whiteboard.h">
+		<Unit filename="/home/mani/Workspace/SideProject/Fiv/Whiteboard/Whiteboard.h">
 			<Option target="Whiteboard"/>
 		</Unit>
-		<Unit filename="/home/wj/Workspace/FreelanceProjects/Whiteboard/CMakeLists.txt">
+		<Unit filename="/home/mani/Workspace/SideProject/Fiv/Whiteboard/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

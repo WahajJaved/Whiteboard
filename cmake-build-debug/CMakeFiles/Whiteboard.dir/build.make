@@ -83,19 +83,79 @@ CMakeFiles/Whiteboard.dir/TCP_Server.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Whiteboard.dir/TCP_Server.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/wj/Workspace/FreelanceProjects/Whiteboard/TCP_Server.c -o CMakeFiles/Whiteboard.dir/TCP_Server.c.s
 
+CMakeFiles/Whiteboard.dir/Whiteboard.c.o: CMakeFiles/Whiteboard.dir/flags.make
+CMakeFiles/Whiteboard.dir/Whiteboard.c.o: ../Whiteboard.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wj/Workspace/FreelanceProjects/Whiteboard/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/Whiteboard.dir/Whiteboard.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Whiteboard.dir/Whiteboard.c.o   -c /home/wj/Workspace/FreelanceProjects/Whiteboard/Whiteboard.c
+
+CMakeFiles/Whiteboard.dir/Whiteboard.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Whiteboard.dir/Whiteboard.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/wj/Workspace/FreelanceProjects/Whiteboard/Whiteboard.c > CMakeFiles/Whiteboard.dir/Whiteboard.c.i
+
+CMakeFiles/Whiteboard.dir/Whiteboard.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Whiteboard.dir/Whiteboard.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/wj/Workspace/FreelanceProjects/Whiteboard/Whiteboard.c -o CMakeFiles/Whiteboard.dir/Whiteboard.c.s
+
+CMakeFiles/Whiteboard.dir/User.c.o: CMakeFiles/Whiteboard.dir/flags.make
+CMakeFiles/Whiteboard.dir/User.c.o: ../User.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wj/Workspace/FreelanceProjects/Whiteboard/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/Whiteboard.dir/User.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Whiteboard.dir/User.c.o   -c /home/wj/Workspace/FreelanceProjects/Whiteboard/User.c
+
+CMakeFiles/Whiteboard.dir/User.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Whiteboard.dir/User.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/wj/Workspace/FreelanceProjects/Whiteboard/User.c > CMakeFiles/Whiteboard.dir/User.c.i
+
+CMakeFiles/Whiteboard.dir/User.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Whiteboard.dir/User.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/wj/Workspace/FreelanceProjects/Whiteboard/User.c -o CMakeFiles/Whiteboard.dir/User.c.s
+
+CMakeFiles/Whiteboard.dir/Topic.c.o: CMakeFiles/Whiteboard.dir/flags.make
+CMakeFiles/Whiteboard.dir/Topic.c.o: ../Topic.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wj/Workspace/FreelanceProjects/Whiteboard/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/Whiteboard.dir/Topic.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Whiteboard.dir/Topic.c.o   -c /home/wj/Workspace/FreelanceProjects/Whiteboard/Topic.c
+
+CMakeFiles/Whiteboard.dir/Topic.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Whiteboard.dir/Topic.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/wj/Workspace/FreelanceProjects/Whiteboard/Topic.c > CMakeFiles/Whiteboard.dir/Topic.c.i
+
+CMakeFiles/Whiteboard.dir/Topic.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Whiteboard.dir/Topic.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/wj/Workspace/FreelanceProjects/Whiteboard/Topic.c -o CMakeFiles/Whiteboard.dir/Topic.c.s
+
+CMakeFiles/Whiteboard.dir/Message.c.o: CMakeFiles/Whiteboard.dir/flags.make
+CMakeFiles/Whiteboard.dir/Message.c.o: ../Message.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wj/Workspace/FreelanceProjects/Whiteboard/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/Whiteboard.dir/Message.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Whiteboard.dir/Message.c.o   -c /home/wj/Workspace/FreelanceProjects/Whiteboard/Message.c
+
+CMakeFiles/Whiteboard.dir/Message.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Whiteboard.dir/Message.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/wj/Workspace/FreelanceProjects/Whiteboard/Message.c > CMakeFiles/Whiteboard.dir/Message.c.i
+
+CMakeFiles/Whiteboard.dir/Message.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Whiteboard.dir/Message.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/wj/Workspace/FreelanceProjects/Whiteboard/Message.c -o CMakeFiles/Whiteboard.dir/Message.c.s
+
 # Object files for target Whiteboard
 Whiteboard_OBJECTS = \
 "CMakeFiles/Whiteboard.dir/TCP_Client.c.o" \
-"CMakeFiles/Whiteboard.dir/TCP_Server.c.o"
+"CMakeFiles/Whiteboard.dir/TCP_Server.c.o" \
+"CMakeFiles/Whiteboard.dir/Whiteboard.c.o" \
+"CMakeFiles/Whiteboard.dir/User.c.o" \
+"CMakeFiles/Whiteboard.dir/Topic.c.o" \
+"CMakeFiles/Whiteboard.dir/Message.c.o"
 
 # External object files for target Whiteboard
 Whiteboard_EXTERNAL_OBJECTS =
 
 Whiteboard: CMakeFiles/Whiteboard.dir/TCP_Client.c.o
 Whiteboard: CMakeFiles/Whiteboard.dir/TCP_Server.c.o
+Whiteboard: CMakeFiles/Whiteboard.dir/Whiteboard.c.o
+Whiteboard: CMakeFiles/Whiteboard.dir/User.c.o
+Whiteboard: CMakeFiles/Whiteboard.dir/Topic.c.o
+Whiteboard: CMakeFiles/Whiteboard.dir/Message.c.o
 Whiteboard: CMakeFiles/Whiteboard.dir/build.make
 Whiteboard: CMakeFiles/Whiteboard.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/wj/Workspace/FreelanceProjects/Whiteboard/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable Whiteboard"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/wj/Workspace/FreelanceProjects/Whiteboard/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking C executable Whiteboard"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Whiteboard.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

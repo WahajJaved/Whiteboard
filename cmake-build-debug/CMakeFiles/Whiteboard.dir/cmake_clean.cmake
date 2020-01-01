@@ -1,6 +1,10 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/Whiteboard.dir/Message.c.o"
   "CMakeFiles/Whiteboard.dir/TCP_Client.c.o"
   "CMakeFiles/Whiteboard.dir/TCP_Server.c.o"
+  "CMakeFiles/Whiteboard.dir/Topic.c.o"
+  "CMakeFiles/Whiteboard.dir/User.c.o"
+  "CMakeFiles/Whiteboard.dir/Whiteboard.c.o"
   "Whiteboard"
   "Whiteboard.pdb"
 )

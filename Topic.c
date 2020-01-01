@@ -3,3 +3,38 @@
 //
 
 #include "Topic.h"
+#include "stdlib.h"
+#include "string.h"
+
+Topic * initTopic(User * owner, char* topicName, int maxMessages, int maxSubscribers ) {
+	Topic * topic = malloc(sizeof(Topic));
+	topic->owner = owner;
+	strcpy(topic->topicName,topicName);
+	topic->maxMessages = maxMessages;
+	topic->maxSubscribers = maxSubscribers;
+
+	topic->messageList = malloc(sizeof(Message*)*maxMessages);
+	topic->subscriberList =  malloc(sizeof(User*)*maxSubscribers);
+
+	topic->currentSubscribers=0;
+	topic->currentMessages=0;
+	return topic;
+}
+int subscribe(Topic* topic,User* user) {
+	if (topic->currentSubscribers < topic->maxSubscribers) {
+		topic->subscriberList[topic->currentSubscribers] = user;
+		return 0;
+	}
+	else {
+		return -1;
+	}
+}
+int isSubscribed(Topic* topic,User* user) {
+	for(int i=0; i<topic->maxSubscribers; i++){
+		if(topic->subscriberList[i] == user ){
+			return 1;
+		}
+	}
+	return -1;
+}
+//int addMessage(struct )

@@ -6,9 +6,16 @@
 #define WHITEBOARD_WHITEBOARD_H
 
 
-struct Whiteboard {
-	struct Topic * topicList;
-};
+#include "Topic.c"
+
+typedef struct {
+	Topic ** topicList;
+	User ** userList;
+	int currentTopics;
+	int currentUsers;
+	int maxTopics;
+	int maxUsers;
+} Whiteboard;
 
 
 #endif //WHITEBOARD_WHITEBOARD_H

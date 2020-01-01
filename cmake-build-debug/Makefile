@@ -123,6 +123,33 @@ Whiteboard/fast:
 	$(MAKE) -f CMakeFiles/Whiteboard.dir/build.make CMakeFiles/Whiteboard.dir/build
 .PHONY : Whiteboard/fast
 
+Message.o: Message.c.o
+
+.PHONY : Message.o
+
+# target to build an object file
+Message.c.o:
+	$(MAKE) -f CMakeFiles/Whiteboard.dir/build.make CMakeFiles/Whiteboard.dir/Message.c.o
+.PHONY : Message.c.o
+
+Message.i: Message.c.i
+
+.PHONY : Message.i
+
+# target to preprocess a source file
+Message.c.i:
+	$(MAKE) -f CMakeFiles/Whiteboard.dir/build.make CMakeFiles/Whiteboard.dir/Message.c.i
+.PHONY : Message.c.i
+
+Message.s: Message.c.s
+
+.PHONY : Message.s
+
+# target to generate assembly for a file
+Message.c.s:
+	$(MAKE) -f CMakeFiles/Whiteboard.dir/build.make CMakeFiles/Whiteboard.dir/Message.c.s
+.PHONY : Message.c.s
+
 TCP_Client.o: TCP_Client.c.o
 
 .PHONY : TCP_Client.o
@@ -177,6 +204,87 @@ TCP_Server.c.s:
 	$(MAKE) -f CMakeFiles/Whiteboard.dir/build.make CMakeFiles/Whiteboard.dir/TCP_Server.c.s
 .PHONY : TCP_Server.c.s
 
+Topic.o: Topic.c.o
+
+.PHONY : Topic.o
+
+# target to build an object file
+Topic.c.o:
+	$(MAKE) -f CMakeFiles/Whiteboard.dir/build.make CMakeFiles/Whiteboard.dir/Topic.c.o
+.PHONY : Topic.c.o
+
+Topic.i: Topic.c.i
+
+.PHONY : Topic.i
+
+# target to preprocess a source file
+Topic.c.i:
+	$(MAKE) -f CMakeFiles/Whiteboard.dir/build.make CMakeFiles/Whiteboard.dir/Topic.c.i
+.PHONY : Topic.c.i
+
+Topic.s: Topic.c.s
+
+.PHONY : Topic.s
+
+# target to generate assembly for a file
+Topic.c.s:
+	$(MAKE) -f CMakeFiles/Whiteboard.dir/build.make CMakeFiles/Whiteboard.dir/Topic.c.s
+.PHONY : Topic.c.s
+
+User.o: User.c.o
+
+.PHONY : User.o
+
+# target to build an object file
+User.c.o:
+	$(MAKE) -f CMakeFiles/Whiteboard.dir/build.make CMakeFiles/Whiteboard.dir/User.c.o
+.PHONY : User.c.o
+
+User.i: User.c.i
+
+.PHONY : User.i
+
+# target to preprocess a source file
+User.c.i:
+	$(MAKE) -f CMakeFiles/Whiteboard.dir/build.make CMakeFiles/Whiteboard.dir/User.c.i
+.PHONY : User.c.i
+
+User.s: User.c.s
+
+.PHONY : User.s
+
+# target to generate assembly for a file
+User.c.s:
+	$(MAKE) -f CMakeFiles/Whiteboard.dir/build.make CMakeFiles/Whiteboard.dir/User.c.s
+.PHONY : User.c.s
+
+Whiteboard.o: Whiteboard.c.o
+
+.PHONY : Whiteboard.o
+
+# target to build an object file
+Whiteboard.c.o:
+	$(MAKE) -f CMakeFiles/Whiteboard.dir/build.make CMakeFiles/Whiteboard.dir/Whiteboard.c.o
+.PHONY : Whiteboard.c.o
+
+Whiteboard.i: Whiteboard.c.i
+
+.PHONY : Whiteboard.i
+
+# target to preprocess a source file
+Whiteboard.c.i:
+	$(MAKE) -f CMakeFiles/Whiteboard.dir/build.make CMakeFiles/Whiteboard.dir/Whiteboard.c.i
+.PHONY : Whiteboard.c.i
+
+Whiteboard.s: Whiteboard.c.s
+
+.PHONY : Whiteboard.s
+
+# target to generate assembly for a file
+Whiteboard.c.s:
+	$(MAKE) -f CMakeFiles/Whiteboard.dir/build.make CMakeFiles/Whiteboard.dir/Whiteboard.c.s
+.PHONY : Whiteboard.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -186,12 +294,24 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... Whiteboard"
 	@echo "... edit_cache"
+	@echo "... Message.o"
+	@echo "... Message.i"
+	@echo "... Message.s"
 	@echo "... TCP_Client.o"
 	@echo "... TCP_Client.i"
 	@echo "... TCP_Client.s"
 	@echo "... TCP_Server.o"
 	@echo "... TCP_Server.i"
 	@echo "... TCP_Server.s"
+	@echo "... Topic.o"
+	@echo "... Topic.i"
+	@echo "... Topic.s"
+	@echo "... User.o"
+	@echo "... User.i"
+	@echo "... User.s"
+	@echo "... Whiteboard.o"
+	@echo "... Whiteboard.i"
+	@echo "... Whiteboard.s"
 .PHONY : help
 
 

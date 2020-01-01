@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/wj/Workspace/FreelanceProjects/Whiteboard/Message.c
+Message.h
+/home/wj/Workspace/FreelanceProjects/Whiteboard/Message.h
+
+/home/wj/Workspace/FreelanceProjects/Whiteboard/Message.h
+
+/home/wj/Workspace/FreelanceProjects/Whiteboard/Topic.c
+Topic.h
+/home/wj/Workspace/FreelanceProjects/Whiteboard/Topic.h
+stdlib.h
+/home/wj/Workspace/FreelanceProjects/Whiteboard/stdlib.h
+string.h
+/home/wj/Workspace/FreelanceProjects/Whiteboard/string.h
+
+/home/wj/Workspace/FreelanceProjects/Whiteboard/Topic.h
+Message.c
+/home/wj/Workspace/FreelanceProjects/Whiteboard/Message.c
+User.c
+/home/wj/Workspace/FreelanceProjects/Whiteboard/User.c
+
+/home/wj/Workspace/FreelanceProjects/Whiteboard/User.c
+User.h
+/home/wj/Workspace/FreelanceProjects/Whiteboard/User.h
+
+/home/wj/Workspace/FreelanceProjects/Whiteboard/User.h
+
+/home/wj/Workspace/FreelanceProjects/Whiteboard/Whiteboard.c
+Whiteboard.h
+/home/wj/Workspace/FreelanceProjects/Whiteboard/Whiteboard.h
+
+/home/wj/Workspace/FreelanceProjects/Whiteboard/Whiteboard.h
+Topic.c
+/home/wj/Workspace/FreelanceProjects/Whiteboard/Topic.c
+

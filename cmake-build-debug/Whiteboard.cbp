@@ -78,7 +78,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/wj/Workspace/FreelanceProjects/Whiteboard/Message.cpp">
+		<Unit filename="/home/wj/Workspace/FreelanceProjects/Whiteboard/Message.c">
 			<Option target="Whiteboard"/>
 		</Unit>
 		<Unit filename="/home/wj/Workspace/FreelanceProjects/Whiteboard/Message.h">
@@ -90,19 +90,19 @@
 		<Unit filename="/home/wj/Workspace/FreelanceProjects/Whiteboard/TCP_Server.c">
 			<Option target="Whiteboard"/>
 		</Unit>
-		<Unit filename="/home/wj/Workspace/FreelanceProjects/Whiteboard/Topic.cpp">
+		<Unit filename="/home/wj/Workspace/FreelanceProjects/Whiteboard/Topic.c">
 			<Option target="Whiteboard"/>
 		</Unit>
 		<Unit filename="/home/wj/Workspace/FreelanceProjects/Whiteboard/Topic.h">
 			<Option target="Whiteboard"/>
 		</Unit>
-		<Unit filename="/home/wj/Workspace/FreelanceProjects/Whiteboard/User.cpp">
+		<Unit filename="/home/wj/Workspace/FreelanceProjects/Whiteboard/User.c">
 			<Option target="Whiteboard"/>
 		</Unit>
 		<Unit filename="/home/wj/Workspace/FreelanceProjects/Whiteboard/User.h">
 			<Option target="Whiteboard"/>
 		</Unit>
-		<Unit filename="/home/wj/Workspace/FreelanceProjects/Whiteboard/Whiteboard.cpp">
+		<Unit filename="/home/wj/Workspace/FreelanceProjects/Whiteboard/Whiteboard.c">
 			<Option target="Whiteboard"/>
 		</Unit>
 		<Unit filename="/home/wj/Workspace/FreelanceProjects/Whiteboard/Whiteboard.h">

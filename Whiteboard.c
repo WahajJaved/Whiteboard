@@ -83,7 +83,7 @@ Topic* getTopic(Whiteboard* whiteboard, char* topicName) {
 
 int deleteTopic(Whiteboard* whiteboard, char* topicName, User * user) {
 	for(int i=0; i<whiteboard->currentTopics; i++) {
-		if(strcmp(topicName, whiteboard->topicList[i]->topicName)){
+		if(!strcmp(topicName, whiteboard->topicList[i]->topicName)){
 			deleteTopicDetails(whiteboard->topicList[i]);
 			free(whiteboard->topicList[i]);
 			whiteboard->currentTopics--;

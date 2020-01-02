@@ -65,9 +65,6 @@ Message* getMessage(Topic* topic, int messageId) {
 
 }
 void deleteTopicDetails(Topic * topic) {
-	for (int i = 0; i < topic->currentMessages; i++) {
-		free(topic->messageList[i]);
-	}
 	free(topic->messageList);
 	free(topic->subscriberList);
 }

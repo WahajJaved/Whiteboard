@@ -35,7 +35,7 @@ int main(void)
         //Specifying the IP and Port of the server to connect
         
         server_addr.sin_family = AF_INET;
-        server_addr.sin_port = htons(2700);
+        server_addr.sin_port = htons(2030);
         server_addr.sin_addr.s_addr = inet_addr("127.0.0.1");
         
         //Now connecting to the server accept() using connect() from client side
@@ -253,24 +253,14 @@ int main(void)
                 printf("%s\n",all_messages);
             }
             else if (signal == 11){
-                memset(server_message,'\0',sizeof(server_message));
-                if(recv(socket_desc, server_message, sizeof(server_message),0) < 0)
-                {
-                    printf("Receive Failed. Error!!!!!\n");
-                    return -1;
-                }
-                int total_iterations = atoi(server_message);
-                int count = 0;
-                while(count<total_iterations){
-                    count++;
-                    memset(server_message,'\0',sizeof(server_message));
-                    if(recv(socket_desc, server_message, sizeof(server_message),0) < 0)
-                    {
-                        printf("Receive Failed. Error!!!!!\n");
-                        return -1;
-                    }
-                    printf("%s\n",server_message);
-                }
+	            memset(server_message,'\0',sizeof(server_message));
+	            memset(server_message,'\0',sizeof(server_message));
+	            if(recv(socket_desc, server_message, sizeof(server_message),0) < 0)
+	            {
+		            printf("Receive Failed. Error!!!!!\n");
+		            return -1;
+	            }
+	            printf("%s\n",server_message);
             }
 
 

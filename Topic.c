@@ -45,7 +45,7 @@ int addMessage(Topic* topic, char* message, User* user) {
 	if (topic->currentMessages < topic->maxMessages) {
 		Message* mssg = malloc(sizeof(Message));
 		mssg->owner = user;
-		mssg->messageId=currentMessage++;
+		mssg->messageId=topic->currentMessages++;
 		strcpy(mssg->status,"Published");
 		strcpy(mssg->messageText, message);
 		topic->messageList[topic->currentMessages] = mssg;

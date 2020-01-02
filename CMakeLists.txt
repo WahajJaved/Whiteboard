@@ -6,5 +6,13 @@ set(CMAKE_C_STANDARD 11)
 include_directories(.)
 
 add_executable(Whiteboard
-        TCP_Client.c
-        TCP_Server.c Whiteboard.c Whiteboard.h User.c User.h Topic.c Topic.h Message.c Message.h)
+    Message.c
+    Message.h
+        Client.c
+        IPC_Server.c
+    Topic.c
+    Topic.h
+    User.c
+    User.h
+    Whiteboard.c
+    Whiteboard.h)

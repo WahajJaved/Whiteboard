@@ -8,8 +8,8 @@
 void initWhiteboard(Whiteboard * whiteboard, int maxTopics, int maxUsers ) {
 	whiteboard->maxTopics = maxTopics;
 	whiteboard->maxUsers = maxUsers;
-	whiteboard->topicList = malloc(sizeof(Topic*)*maxTopics);
-	whiteboard->userList = malloc(sizeof(*whiteboard->userList)*maxUsers);
+	whiteboard->topicList = malloc(sizeof(Topic)*maxTopics);
+	whiteboard->userList = malloc(sizeof(User)*maxUsers);
 	whiteboard->currentTopics=0;
 	whiteboard->currentUsers=0;
 }
@@ -24,6 +24,7 @@ int addUser(Whiteboard * whiteboard, char* username, char* password) {
 	}
 	else {
 		return -1;
+
 	}
 }
 
@@ -70,8 +71,10 @@ int replyMessage(Whiteboard* whiteboard, char* reply, User* user, int messageId)
 }
 
 Topic* getTopic(Whiteboard* whiteboard, char* topicName) {
+    //printf("%s\n",topicName);
 	for(int i=0; i<whiteboard->currentTopics; i++) {
-		if(strcmp(topicName, whiteboard->topicList[i]->topicName)){
+		if(!strcmp(topicName, whiteboard->topicList[i]->topicName)){
+            //printf("%s\n",whiteboard->topicList[i]->topicName);
 			return whiteboard->topicList[i];
 		}
 	}
@@ -95,6 +98,6 @@ int deleteTopic(Whiteboard* whiteboard, char* topicName, User * user) {
 Message** getMessageList(Whiteboard* whiteboard, Topic* topic) {
 	return topic->messageList;
 }
-Topic** getAvailableTopicList(Whiteboard* whiteboard, Topic* topic) {
+Topic** getAvailableTopicList(Whiteboard* whiteboard) {
 	return whiteboard->topicList;
 }

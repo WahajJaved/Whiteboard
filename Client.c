@@ -35,7 +35,7 @@ int main(void)
         //Specifying the IP and Port of the server to connect
         
         server_addr.sin_family = AF_INET;
-        server_addr.sin_port = htons(2030);
+        server_addr.sin_port = htons(2000);
         server_addr.sin_addr.s_addr = inet_addr("127.0.0.1");
         
         //Now connecting to the server accept() using connect() from client side

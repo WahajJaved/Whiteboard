@@ -64,13 +64,15 @@ int main(void)
 		perror ("semget"); exit (1);
 	}
 	// giving initial values
-	sem_attr.val = 1;    // MAX_BUFFERS are available
+	sem_attr.val = 0;    // MAX_BUFFERS are available
 	if (semctl (write_sem, 0, SETVAL, sem_attr) == -1) {
 		perror (" semctl SETVAL "); exit (1);
 	}
 
 	int maxTopics = 5;
     int maxUsers = 3;
+    int maxSubscribers = 10;
+    int maxMessages = 200;
     int socket_desc, client_sock, client_size, accept_fd;
     struct sockaddr_in server_addr, client_addr;         //SERVER ADDR will have all the server address
     char server_message[2000], client_message[2000];
@@ -78,6 +80,9 @@ int main(void)
     char clientUserName[2000];
 
 
+    // shmget returns an identifier in shmid
+    int shm_id = shmget(IPC_PRIVATE,sizeof(Whiteboard)+maxUsers*sizeof(User) +
+    maxTopics*(sizeof(Topic)+sizeof(User)*maxSubscribers+ sizeof(Message)*maxMessages),0666|IPC_CREAT);
 
     //for Shared Memory
     key_t key = ftok("forShm",65);
@@ -116,7 +121,7 @@ int main(void)
     //Binding IP and Port to socket
 
     server_addr.sin_family = AF_INET;               /* Address family = Internet */
-    server_addr.sin_port = htons(2030);               // Set port number, using htons function to use proper byte order */
+    server_addr.sin_port = htons(2000);               // Set port number, using htons function to use proper byte order */
     server_addr.sin_addr.s_addr = inet_addr("127.0.0.1");    /* Set IP address to localhost */
 
 
@@ -239,26 +244,32 @@ int main(void)
 	                // WRITE
 	                asem [0].sem_op = -MAX_READERS+1;
 	                if (semop (read_sem, asem, 1) == -1) {
-		                perror ("semop: spool_signal_sem"); exit (1);
+		                perror ("semop: sem_signal_malfunction"); exit (1);
 	                }
 
-	                asem [0].sem_op = -1;
+	                asem [0].sem_op = 0;
 	                if (semop (write_sem, asem, 1) == -1) {
-		                perror ("semop: spool_signal_sem"); exit (1);
+		                perror ("semop: sem_signal_malfunction"); exit (1);
+	                }
+
+	                asem [0].sem_op = 1;
+	                if (semop (write_sem, asem, 1) == -1) {
+		                perror ("semop: sem_signal_malfunction"); exit (1);
 	                }
 
 	                if(addTopic(upd_wb,client_message,currentUser) < 0){
                         printf("Failed to add Topic");
                         return -1;
                     }
+
 	                // After Write
-	                asem [0].sem_op = 1;
+	                asem [0].sem_op = -1;
 	                if (semop (write_sem, asem, 1) == -1) {
-		                perror ("semop: spool_signal_sem"); exit (1);
+		                perror ("semop: sem_signal_malfunction"); exit (1);
 	                }
 	                asem [0].sem_op = MAX_READERS-1;
 	                if (semop (read_sem, asem, 1) == -1) {
-		                perror ("semop: spool_signal_sem"); exit (1);
+		                perror ("semop: sem_signal_malfunction"); exit (1);
 	                }
 
                     strcpy(server_message,"Topic Added");
@@ -282,25 +293,24 @@ int main(void)
 	                // WRITE
 	                asem [0].sem_op = -MAX_READERS+1;
 	                if (semop (read_sem, asem, 1) == -1) {
-		                perror ("semop: spool_signal_sem"); exit (1);
+		                perror ("semop: sem_signal_malfunction"); exit (1);
 	                }
 
 	                asem [0].sem_op = -1;
 	                if (semop (write_sem, asem, 1) == -1) {
-		                perror ("semop: spool_signal_sem"); exit (1);
+		                perror ("semop: sem_signal_malfunction"); exit (1);
 	                }
                     if(deleteTopic(upd_wb, client_message,currentUser) < 0){
                         strcpy(server_message,"Topic Deleted");
-
                     }
 	                // After Write
 	                asem [0].sem_op = 1;
 	                if (semop (write_sem, asem, 1) == -1) {
-		                perror ("semop: spool_signal_sem"); exit (1);
+		                perror ("semop: sem_signal_malfunction"); exit (1);
 	                }
 	                asem [0].sem_op = MAX_READERS-1;
 	                if (semop (read_sem, asem, 1) == -1) {
-		                perror ("semop: spool_signal_sem"); exit (1);
+		                perror ("semop: sem_signal_malfunction"); exit (1);
 	                }
                     else {
                         strcpy(server_message,"Topic Deleted");
@@ -327,12 +337,12 @@ int main(void)
 	                // WRITE
 	                asem [0].sem_op = -MAX_READERS+1;
 	                if (semop (read_sem, asem, 1) == -1) {
-		                perror ("semop: spool_signal_sem"); exit (1);
+		                perror ("semop: sem_signal_malfunction"); exit (1);
 	                }
 
 	                asem [0].sem_op = -1;
 	                if (semop (write_sem, asem, 1) == -1) {
-		                perror ("semop: spool_signal_sem"); exit (1);
+		                perror ("semop: sem_signal_malfunction"); exit (1);
 	                }
                     Topic* topic_name = getTopic(upd_wb,client_message);
                     if(subscribeUser(topic_name,currentUser)<0){
@@ -344,11 +354,11 @@ int main(void)
 	                // After Write
 	                asem [0].sem_op = 1;
 	                if (semop (write_sem, asem, 1) == -1) {
-		                perror ("semop: spool_signal_sem"); exit (1);
+		                perror ("semop: sem_signal_malfunction"); exit (1);
 	                }
 	                asem [0].sem_op = MAX_READERS-1;
 	                if (semop (read_sem, asem, 1) == -1) {
-		                perror ("semop: spool_signal_sem"); exit (1);
+		                perror ("semop: sem_signal_malfunction"); exit (1);
 	                }
                     if (send(accept_fd, server_message, strlen(server_message), 0) < 0) {
                         printf("Authentication not Sent. Error!!!!\n");
@@ -378,22 +388,22 @@ int main(void)
 	                // WRITE
 	                asem [0].sem_op = -MAX_READERS+1;
 	                if (semop (read_sem, asem, 1) == -1) {
-		                perror ("semop: spool_signal_sem"); exit (1);
+		                perror ("semop: sem_signal_malfunction"); exit (1);
 	                }
 
 	                asem [0].sem_op = -1;
 	                if (semop (write_sem, asem, 1) == -1) {
-		                perror ("semop: spool_signal_sem"); exit (1);
+		                perror ("semop: sem_signal_malfunction"); exit (1);
 	                }
                     int checker = replyMessage(whiteboard,client_message,currentUser,messageId);
 	                // After Write
 	                asem [0].sem_op = 1;
 	                if (semop (write_sem, asem, 1) == -1) {
-		                perror ("semop: spool_signal_sem"); exit (1);
+		                perror ("semop: sem_signal_malfunction"); exit (1);
 	                }
 	                asem [0].sem_op = MAX_READERS-1;
 	                if (semop (read_sem, asem, 1) == -1) {
-		                perror ("semop: spool_signal_sem"); exit (1);
+		                perror ("semop: sem_signal_malfunction"); exit (1);
 	                }
                     if(checker<0){
                         strcpy(server_message,"Not replied");
@@ -422,12 +432,12 @@ int main(void)
 	                // WRITE
 	                asem [0].sem_op = -MAX_READERS+1;
 	                if (semop (read_sem, asem, 1) == -1) {
-		                perror ("semop: spool_signal_sem"); exit (1);
+		                perror ("semop: sem_signal_malfunction"); exit (1);
 	                }
 
 	                asem [0].sem_op = -1;
 	                if (semop (write_sem, asem, 1) == -1) {
-		                perror ("semop: spool_signal_sem"); exit (1);
+		                perror ("semop: sem_signal_malfunction"); exit (1);
 	                }
                     //printf("%s\n",client_message);
                     Topic* topic_name = getTopic(upd_wb,client_message);
@@ -444,11 +454,11 @@ int main(void)
 	                // After Write
 	                asem [0].sem_op = 1;
 	                if (semop (write_sem, asem, 1) == -1) {
-		                perror ("semop: spool_signal_sem"); exit (1);
+		                perror ("semop: sem_signal_malfunction"); exit (1);
 	                }
 	                asem [0].sem_op = MAX_READERS-1;
 	                if (semop (read_sem, asem, 1) == -1) {
-		                perror ("semop: spool_signal_sem"); exit (1);
+		                perror ("semop: sem_signal_malfunction"); exit (1);
 	                }
                     if(checker<0){
                         strcpy(server_message,"Not replied");
@@ -477,13 +487,13 @@ int main(void)
 	                struct sembuf asem [1];
 	                asem [0].sem_op = -1;
 	                if (semop (read_sem, asem, 1) == -1) {
-		                perror ("semop: spool_signal_sem"); exit (1);
+		                perror ("semop: sem_signal_malfunction"); exit (1);
 	                }
                     Message* outMess = getMessageTopic(whiteboard,mesId,currentUser );
 	                // After READ
 	                asem[0].sem_op = 1;
 	                if (semop (read_sem, asem, 1) == -1) {
-		                perror ("semop: spool_signal_sem"); exit (1);
+		                perror ("semop: sem_signal_malfunction"); exit (1);
 	                }
 	                if(outMess == NULL){
                         strcpy(server_message,"Not Retreived");
@@ -513,13 +523,13 @@ int main(void)
 	                struct sembuf asem [1];
 	                asem [0].sem_op = -1;
 	                if (semop (read_sem, asem, 1) == -1) {
-		                perror ("semop: spool_signal_sem"); exit (1);
+		                perror ("semop: sem_signal_malfunction"); exit (1);
 	                }
                     Message* outMess = getMessageTopic(whiteboard,mesId,currentUser );
 	                // After READ
 	                asem[0].sem_op = 1;
 	                if (semop (read_sem, asem, 1) == -1) {
-		                perror ("semop: spool_signal_sem"); exit (1);
+		                perror ("semop: sem_signal_malfunction"); exit (1);
 	                }
                     if(outMess == NULL){
                         strcpy(server_message,"Status Not Retreived");
@@ -548,7 +558,7 @@ int main(void)
 	                struct sembuf asem [1];
 	                asem [0].sem_op = -1;
 	                if (semop (read_sem, asem, 1) == -1) {
-		                perror ("semop: spool_signal_sem"); exit (1);
+		                perror ("semop: sem_signal_malfunction"); exit (1);
 	                }
                     Topic* topic_name = getTopic(upd_wb,client_message);
 
@@ -566,7 +576,7 @@ int main(void)
 	                // After READ
 	                asem[0].sem_op = 1;
 	                if (semop (read_sem, asem, 1) == -1) {
-		                perror ("semop: spool_signal_sem"); exit (1);
+		                perror ("semop: sem_signal_malfunction"); exit (1);
 	                }
                     printf("message to send is : %s\n",server_message);
                     if (send(accept_fd, server_message, strlen(server_message), 0) < 0) {
@@ -586,7 +596,7 @@ int main(void)
 	                struct sembuf asem [1];
 	                asem [0].sem_op = -1;
 	                if (semop (read_sem, asem, 1) == -1) {
-		                perror ("semop: spool_signal_sem"); exit (1);
+		                perror ("semop: sem_signal_malfunction"); exit (1);
 	                }
 	                Topic ** t_list = getAvailableTopicList(upd_wb);
 
@@ -604,7 +614,7 @@ int main(void)
 	                // After READ
 	                asem[0].sem_op = 1;
 	                if (semop (read_sem, asem, 1) == -1) {
-		                perror ("semop: spool_signal_sem"); exit (1);
+		                perror ("semop: sem_signal_malfunction"); exit (1);
 	                }
 	                printf("message to send is : %s\n",server_message);
 	                if (send(accept_fd, server_message, strlen(server_message), 0) < 0) {

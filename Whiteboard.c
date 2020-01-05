@@ -24,7 +24,6 @@ int addUser(Whiteboard * whiteboard, char* username, char* password) {
 	}
 	else {
 		return -1;
-
 	}
 }
 

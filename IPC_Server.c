@@ -28,22 +28,6 @@ struct arg_struct {
 int read_sem, write_sem;
 
 
-void WriteInShm(int shm_id, Whiteboard* whiteboard){
-    // shmat to attach to shared memory
-    //printf("Starting to Write");
-    Whiteboard* str =  (Whiteboard*) shmat(shm_id, (void *) 0, 0);
-
-    str->maxUsers = whiteboard->maxUsers;
-    //detaching shm
-    shmdt(str);
-}
-Whiteboard* gettShm(int shm_id){
-    //shmat to attach to shared memory
-    //printf("Starting to Retreive");
-    Whiteboard * str = (Whiteboard*) shmat(shm_id, (void *) 0, 0);
-    //printf("From inside the hell : %d\n", str->maxUsers);
-    return str;
-}
 
 int main(void)
 {
@@ -94,19 +78,23 @@ int main(void)
     char clientUserName[2000];
 
 
-    // shmget returns an identifier in shmid
-    int shm_id = shmget(IPC_PRIVATE,1024,0666|IPC_CREAT);
 
-	Whiteboard* whiteboard = gettShm(shm_id);
+    //for Shared Memory
+    key_t key = ftok("forShm",65);
+    int shm_id = shmget(key,1024,0666|IPC_CREAT);
+    Whiteboard* whiteboard  = (Whiteboard*) shmat(shm_id, (void *) 0, 0);
+
 	initWhiteboard(whiteboard,maxTopics,maxUsers);
 	printf("maxUsers : %d \n",whiteboard->maxUsers);
 
 	addUser(whiteboard, "abd","124");
 	addUser(whiteboard, "cba","321");
-	printf("stage 0");
+	//printf("stage 0");
+
+    shmdt(whiteboard);
 
 
-	WriteInShm(shm_id,whiteboard);
+	//WriteInShm(shm_id,whiteboard);
 
     //Cleaning the Buffers
 
@@ -159,6 +147,7 @@ int main(void)
     int addr_size = sizeof(struct sockaddr_in);
     pid_t child_pid;
     int i=0;
+
     while (i<5) {
         i++;
         if ((accept_fd = accept(socket_desc, (struct sockaddr *) &server_addr, &addr_size)) < 0) {
@@ -166,7 +155,15 @@ int main(void)
             return -1;
         }
         printf("Connection Accepted\n");
-        if (fork()== 0) {
+        if (fork() == 0) {
+
+            //for Shared Memory
+            key_t key = ftok("forShm",65);
+            int shm_id_child = shmget(key,1024,0666|IPC_CREAT);
+            Whiteboard* upd_wb  = (Whiteboard*) shmat(shm_id_child, (void *) 0, 0);
+
+            //Whiteboard* upd_wb = whiteboard;
+            printf("%d\n",shm_id_child);
             //child process
             User* currentUser;
             //memset(client_message,'\0',sizeof(client_message));
@@ -187,7 +184,6 @@ int main(void)
             printf("client password : %s\n", client_message);
 
             memset(server_message, '\0', sizeof(server_message));
-            whiteboard = gettShm(shm_id);
 
 	        // READ Semaphore
 	        struct sembuf asem [1];
@@ -196,7 +192,7 @@ int main(void)
 		        perror ("semop: dec read_sem"); exit (1);
 	        }
 
-            if((currentUser = authenticate(whiteboard,clientUserName,client_message))==NULL){
+            if((currentUser = authenticate(upd_wb,clientUserName,client_message))==NULL){
                 printf("Incorrect Credentails \n");
                 memset(server_message, '\0', sizeof(server_message));
                 strcpy(server_message, "Incorrect Credentials");
@@ -217,7 +213,7 @@ int main(void)
                 return -1;
             }
             printf("Session Information Sent to client \n");
-
+            //Whiteboard * upd_wb = gettShm(shm_id);
 
             int signal = 0; // 0-not yet decided, 1-Add topic , 2-Exit, 4-delete topic
             while (signal != 2){
@@ -232,7 +228,7 @@ int main(void)
                 printf("client choose option no : %d\n",signal);
                 if(signal == 1){
                     //adding a topic
-                    Whiteboard * upd_wb = gettShm(shm_id);
+                    //Whiteboard * upd_wb = gettShm(shm_id);
 
                     memset(client_message,'\0',sizeof(client_message));
                     memset(server_message,'\0',sizeof(server_message));
@@ -271,12 +267,12 @@ int main(void)
                         return -1;
                     }
                     // detaching shm
-                    shmdt(upd_wb);
-                    WriteInShm(shm_id,upd_wb);
+                    //shmdt(upd_wb);
+                   // WriteInShm(shm_id,upd_wb);
                 }
                 else if(signal == 4){
                     //delete topic
-                    Whiteboard * upd_wb = gettShm(shm_id);
+                    //Whiteboard * upd_wb = gettShm(shm_id);
                     memset(client_message,'\0',sizeof(client_message));
                     memset(server_message,'\0',sizeof(server_message));
                     if (recv(accept_fd, client_message, sizeof(client_message), 0) < 0) {
@@ -315,13 +311,13 @@ int main(void)
                     }
 
                     // detaching shm
-                    shmdt(upd_wb);
-                    WriteInShm(shm_id,upd_wb);
+                    //shmdt(upd_wb);
+                    //WriteInShm(shm_id,upd_wb);
                 }
                 else if (signal == 5){
                     //subscribe for a topic
 
-                    Whiteboard * upd_wb = gettShm(shm_id);
+                    //Whiteboard * upd_wb = gettShm(shm_id);
                     memset(client_message,'\0',sizeof(client_message));
                     memset(server_message,'\0',sizeof(server_message));
                     if (recv(accept_fd, client_message, sizeof(client_message), 0) < 0) {
@@ -360,13 +356,13 @@ int main(void)
                     }
 
                     // detaching shm
-                    shmdt(upd_wb);
-                    WriteInShm(shm_id,upd_wb);
+                    //shmdt(upd_wb);
+                    //WriteInShm(shm_id,upd_wb);
                 }
 
                 else if(signal == 6){
                     //reply to a messageId
-                    Whiteboard * upd_wb = gettShm(shm_id);
+                    //Whiteboard * upd_wb = gettShm(shm_id);
                     memset(client_message,'\0',sizeof(client_message));
                     memset(server_message,'\0',sizeof(server_message));
                     if (recv(accept_fd, client_message, sizeof(client_message), 0) < 0) {
@@ -411,12 +407,12 @@ int main(void)
                     }
 
                     // detaching shm
-                    shmdt(upd_wb);
-                    WriteInShm(shm_id,upd_wb);
+                    //shmdt(upd_wb);
+                    //WriteInShm(shm_id,upd_wb);
                 }
                 else if(signal == 7){
                     //reply to a topic
-                    Whiteboard * upd_wb = gettShm(shm_id);
+                    //Whiteboard * upd_wb = gettShm(shm_id);
 
                     memset(client_message,'\0',sizeof(client_message));
                     if (recv(accept_fd, client_message, sizeof(client_message), 0) < 0) {
@@ -465,17 +461,18 @@ int main(void)
                         return -1;
                     }
                     // detaching shm
-                    shmdt(upd_wb);
-                    WriteInShm(shm_id,upd_wb);
+                    //shmdt(upd_wb);
+                    //WriteInShm(shm_id,upd_wb);
                 }else if (signal == 8){
                     //get message from id
-                    Whiteboard * upd_wb = gettShm(shm_id);
+                    //Whiteboard * upd_wb = gettShm(shm_id);
                     memset(client_message,'\0',sizeof(client_message));
                     if (recv(accept_fd, client_message, sizeof(client_message), 0) < 0) {
                         printf("MessageId not received. Error!!!!!\n");
                         return -1;
                     }
                     int mesId = atoi(client_message);
+                    printf("%d\n",mesId);
 	                // READ
 	                struct sembuf asem [1];
 	                asem [0].sem_op = -1;
@@ -500,12 +497,12 @@ int main(void)
                     }
 
                     // detaching shm
-                    shmdt(upd_wb);
-                    WriteInShm(shm_id,upd_wb);
+                    //shmdt(upd_wb);
+                    //WriteInShm(shm_id,upd_wb);
                 }
                 else if (signal == 9){
                     //get message status from id
-                    Whiteboard * upd_wb = gettShm(shm_id);
+                    //Whiteboard * upd_wb = gettShm(shm_id);
                     memset(client_message,'\0',sizeof(client_message));
                     if (recv(accept_fd, client_message, sizeof(client_message), 0) < 0) {
                         printf("MessageId not received. Error!!!!!\n");
@@ -536,12 +533,12 @@ int main(void)
                     }
 
                     // detaching shm
-                    shmdt(upd_wb);
-                    WriteInShm(shm_id,upd_wb);
+                    //shmdt(upd_wb);
+                    //WriteInShm(shm_id,upd_wb);
                 }
                 else if(signal == 10){
                     //get message list
-                    Whiteboard * upd_wb = gettShm(shm_id);
+                    //Whiteboard * upd_wb = gettShm(shm_id);
                     memset(client_message,'\0',sizeof(client_message));
                     if (recv(accept_fd, client_message, sizeof(client_message), 0) < 0) {
                         printf("Topic not received. Error!!!!!\n");
@@ -578,13 +575,13 @@ int main(void)
                     }
 
                     // detaching shm
-                    shmdt(upd_wb);
-                    WriteInShm(shm_id,upd_wb);
+                    //shmdt(upd_wb);
+                    //WriteInShm(shm_id,upd_wb);
 
                 }
                 else if(signal == 11){
                 	//ret topics
-                	Whiteboard * upd_wb = gettShm(shm_id);
+                	//Whiteboard * upd_wb = gettShm(shm_id);
 	                // READ
 	                struct sembuf asem [1];
 	                asem [0].sem_op = -1;
@@ -594,6 +591,7 @@ int main(void)
 	                Topic ** t_list = getAvailableTopicList(upd_wb);
 
 	                int total_iterations = upd_wb->currentTopics;
+	                printf("total topics available : %d \n",total_iterations);
 	                //printf("total iter : %d\n",total_iterations);
 
 	                memset(server_message,'\0',sizeof(server_message));
@@ -615,14 +613,16 @@ int main(void)
 	                }
 
 	                // detaching shm
-	                shmdt(upd_wb);
-	                WriteInShm(shm_id,upd_wb);
+	                //shmdt(upd_wb);
+	                //WriteInShm(shm_id,upd_wb);
 
                 }
             }
+            shmdt(upd_wb);
         }
         else {
             //wait(NULL);
+            //shmctl(shm_id,IPC_RMID,NULL);
             //PrintShm(shm_id);
         }
     }

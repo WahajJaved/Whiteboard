@@ -80,14 +80,10 @@ int main(void)
         }
         
         printf("Server Message: %s\n",server_message);
-        if(send(socket_desc, client_message, strlen(client_message),0) < 0)
-        {
-            printf("option not sent. Error!!!!\n");
-            return -1;
-        }
+
         int signal = 0;
         while(signal != 2){
-            printf("Enter no of any option you want to choose (0-nothing, 1-Add New Topic, 2-Exit, 4-delete Topic, 5- Subscribe to a topic, 6-Reply to a messageId, 7-Reply to a topic, 8-get message from id , 9-get message status from id,10-get message list ,11- get topic list)\n");
+            printf("Enter no of any option you want to choose \n(0-nothing\n 1-Add New Topic\n 2-Exit\n 4-Delete Topic\n 5- Subscribe to a topic\n 6-Reply to a messageId\n 7-Reply to a topic\n 8-Get message from id\n 9-Get message status from id\n 10-Get message list\n 11- Get topic list\n");
             memset(client_message,'\0',sizeof(client_message));
             gets(client_message);
             signal = atoi(client_message);
